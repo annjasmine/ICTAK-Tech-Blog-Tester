@@ -15,6 +15,6 @@ public class AutomationConstants {
 	public static final String ERROR_NAME  ="Enter Your Name";
 	public static final String URL5 ="http://64.227.132.106/spost";
 	public static final String URL6 ="http://64.227.132.106/categorywise";
-	
+	public static final String URL7 ="http://64.227.132.106/admin";
 }
 

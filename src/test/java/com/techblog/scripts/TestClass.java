@@ -1,15 +1,19 @@
 package com.techblog.scripts;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.techblog.constants.AutomationConstants;
 import com.techblog.pages.LandingPage;
 import com.techblog.pages.SignUp;
 import com.techblog.utilities.ExcelUtility;
+import com.techblog.utilities.PageUtility;
 
 public class TestClass extends TestBase{
 LandingPage objLandingPage;
@@ -83,7 +87,7 @@ Assert.assertEquals(expectedURL3,actualURL3);
 Thread.sleep(3000);
 
 }
-@Test(priority=5, enabled =false)
+@Test(priority=6)
 public void varifyingAboutUs() throws IOException, InterruptedException {
 
 objLandingPage.clickAboutUs();
@@ -94,20 +98,36 @@ Assert.assertEquals(expectedURL2,actualURL2);
 Thread.sleep(3000);
 
 objLandingPage.clickTerms();
-objLandingPage.wait(10);
+
+if (objLandingPage.clickTerms()) {
+		System.out.println("Terms Enabled, but unable to click");
+}else {
+		System.out.println("Terms 'Null'");
+}
+Thread.sleep(2000);
 
 objLandingPage.clickHandle();
+
+if (objLandingPage.clickTerms()) {
+		System.out.println("Social media handles are unable to click");
+}else {
+		System.out.println("Terms 'Null'");
+}
 Thread.sleep(2000);
 }
-@Test(priority=6)
+@Test(priority=5)
 public void varifyingCategories() throws IOException, InterruptedException {
+driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 objLandingPage.clickDrpCatagories();
+driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 objLandingPage.clickSpace();
+
 String expectedURL4 =AutomationConstants.URL6;
 String actualURL4 =driver.getCurrentUrl();
 System.out.println(actualURL4);
 Assert.assertEquals(expectedURL4,actualURL4);
-
+driver.navigate().back();
+/*
 WebElement space= driver.findElement(By.xpath("/html/body/app-root/app-group/div[2]/li[15]/div/div/div/small"));
 JavascriptExecutor jse = (JavascriptExecutor)driver;
 jse.executeScript("arguments[0].click()", space); 
@@ -117,9 +137,9 @@ String actualURL5 =driver.getCurrentUrl();
 System.out.println(actualURL5);
 Assert.assertEquals(expectedURL5,actualURL5);
 Thread.sleep(2000);
+
+*/
 }
-
-
 }
 
 

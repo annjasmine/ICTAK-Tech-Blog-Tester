@@ -4,11 +4,47 @@
   <test thread-count="5" name="Test(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
+      <class name="com.techblog.scripts.TrainerSignUp">
+        <methods>
+          <include name="verifyInvalidTrainerEmail"/>
+          <include name="onSetup"/>
+          <include name="verifyValidTrainerSignup"/>
+          <include name="verifySignin"/>
+          <include name="tearDown"/>
+          <include name="verifyInvalidPasswordTrainerSignup"/>
+        </methods>
+      </class> <!-- com.techblog.scripts.TrainerSignUp -->
+      <class name="com.techblog.scripts.UserSignup">
+        <methods>
+          <include name="verifyInvalidPassword"/>
+          <include name="verifyInvalidUserEmail"/>
+          <include name="verifyNullUserSignup"/>
+          <include name="verifyValidUserSignup"/>
+          <include name="onSetup"/>
+          <include name="tearDown"/>
+          <include name="verifyInValidPassword2"/>
+          <include name="verifyInvalidUserName"/>
+        </methods>
+      </class> <!-- com.techblog.scripts.UserSignup -->
+      <class name="com.techblog.scripts.TCLogin">
+        <methods>
+          <include name="verifySignUp"/>
+          <include name="verifyInvalidEmailLogin"/>
+          <include name="onSetup"/>
+          <include name="verifyInvalidPasswLogin"/>
+          <include name="tearDown"/>
+          <include name="verifyNullLogin"/>
+        </methods>
+      </class> <!-- com.techblog.scripts.TCLogin -->
       <class name="com.techblog.scripts.TestClass">
         <methods>
+          <include name="varifyingContactUs"/>
           <include name="varifyingAboutUs"/>
+          <include name="varifyingFeedback"/>
           <include name="onSetup"/>
           <include name="varifyingCategories"/>
+          <include name="varifyingLatestArticles"/>
+          <include name="verifyLandingPage"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- com.techblog.scripts.TestClass -->

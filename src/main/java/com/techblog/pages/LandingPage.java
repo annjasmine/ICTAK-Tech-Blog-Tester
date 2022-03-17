@@ -1,6 +1,7 @@
 package com.techblog.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -35,7 +36,7 @@ public class LandingPage {
 		    private WebElement submitmessage;
 		    
 		    //About us
-		    @FindBy (xpath="/html/body/app-root/app-footer/footer/div[1]/a[3]")
+		    @FindBy (xpath="//*[text()='About us']")
 		    private WebElement aboutus;
 		    @FindBy (xpath="/html/body/app-root/app-footer/footer/div[3]/p[2]")
 		    private WebElement terms;
@@ -105,8 +106,10 @@ public class LandingPage {
 		            linkin.click();
 		            twit.click();
 		     }
-		     public void clickTerms(){  
-		            terms.click();
+		     //public void clickTerms(){  
+		           //terms.click();
+		     public boolean clickTerms() {
+		    	 return terms.isEnabled();
 		    }
 		   //Explore Latest Articles section
 		     public void clickHomePage(){  

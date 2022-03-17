@@ -5,8 +5,14 @@
     <classes>
       <class name="com.techblog.scripts.TestClass">
         <methods>
+          <include name="varifyingContactUs"/>
+          <include name="varifyingAboutUs"/>
+          <include name="varifyingFeedback"/>
           <include name="onSetup"/>
+          <include name="varifyingCategories"/>
+          <include name="varifyingLatestArticles"/>
           <include name="verifyLandingPage"/>
+          <include name="tearDown"/>
         </methods>
       </class> <!-- com.techblog.scripts.TestClass -->
     </classes>
